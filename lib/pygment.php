@@ -15,7 +15,7 @@ class Pygment {
         0 => array("pipe", "r"),  // stdin 
         1 => array("pipe", "w"),  // stdout 
     ); 
-    $process = proc_open("pygmentize -l $language -f html", $descriptorspec, $pipes); 
+    $process = proc_open("pygmentize -l $language -f html -O encoding=utf8", $descriptorspec, $pipes); 
     if (is_resource($process)) { 
       fwrite($pipes[0], ($code)); 
       fclose($pipes[0]); 
